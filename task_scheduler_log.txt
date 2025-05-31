@@ -1,0 +1,88 @@
+Starting New Log at 27-05-2025 12:05:04.15 
+ 
+Starting script execution at 27-05-2025 12:05:04.16 
+Current directory: C:\Users\91871\OneDrive\Desktop\PyProjects\Insta_Automator 
+Errorlevel after cd: 0 
+Activating virtual environment: C:\Users\91871\OneDrive\Desktop\PyProjects\Insta_Automator\.venv\Scripts\activate.bat 
+Errorlevel after venv activate: 0 
+Checking python path (should be venv Python): 
+c:\Users\91871\OneDrive\Desktop\PyProjects\Insta_Automator\.venv\Scripts\python.exe
+C:\Users\91871\AppData\Local\Programs\Python\Python312\python.exe
+C:\Users\91871\AppData\Local\Programs\Python\Python38\python.exe
+C:\Users\91871\AppData\Local\Microsoft\WindowsApps\python.exe
+ 
+Running Python script: ultimateuploader.py 
+
+--- Overall Video Generation Attempt 1/3 ---
+--- Step 1: Selecting and Filtering Pre-existing Background Image ---
+Selected BG: Images\Whisk_08264d91c2.jpg
+Scaling BG width from 768 to 775...
+Filtered BG saved to 'filtered_background_for_video.png'
+BG processing successful.
+
+--- Step 2: Fetching Shloka and Meanings ---
+Fetching text response from Gemini for prompt: 'Provide a concise Sanskrit shloka (1-2 lines) from Hindu scriptures like the Upanishads, Bhagavad Gita, Mahabharata, Puranas, or other Smriti or Shruti texts. Then, after 'हिंदी अर्थ:', provide an ACCURATE Hindi meaning (1-2 lines) for the shloka. Then, after 'English Meaning:', provide its English meaning (1-2 lines). Keep all three parts relatively short and suitable for a vertical video format. Ensure the Hindi translation is a correct interpretation of the Sanskrit.'
+--- Cleaned Sanskrit Part ---
+शान्तिर्हि परमा गतिः।
+--------------------
+--- Cleaned Hindi Meaning Part ---
+शांति ही परम गति है, परम लक्ष्य है।
+-------------------
+--- Cleaned English Meaning Part ---
+eace is the ultimate goal, the highest destination
+-----------------
+Added shloka key 'शान्तिर्हि परमा गतिः।...' to used list.
+Unique shloka obtained.
+--- Processed Sanskrit ---
+"शान्तिर्हि परमा गतिः।"
+--- Processed Hindi ---
+"शांति ही परम गति है
+ परम लक्ष्य है।"
+--- Processed English ---
+eace is the ultimate goal, the highest destination
+
+Font sizes - Skt: 60pt, Hin: 52pt, Eng: 48pt
+
+--- Step 3: Rendering Text to 'rendered_gemini_text_overlay.png' ---
+Rendering Skt(60pt), Hin(52pt), Eng(48pt) to rendered_gemini_text_overlay.png...
+Successfully rendered text to rendered_gemini_text_overlay.png
+Text rendered successfully.
+
+--- Step 4: Selecting Background Music ---
+Selected BGM: audio1cor.mp3
+--- Step 5: Creating Final Video 'final_reel_video.mp4' ---
+FFmpeg: ffmpeg -loop 1 -framerate 25 -i filtered_background_for_video.png -i rendered_gemini_text_overlay.png -i audio1cor.mp3 -filter_complex '[0:v]scale='"'"'iw*max(1080/iw,1920/ih)'"'"':'"'"'ih*max(1080/iw,1920/ih)'"'"',crop=1080:1920,setsar=1[bg_scaled];[bg_scaled][1:v]overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2[outv]' -map '[outv]' -map '2:a?' -c:v libx264 -pix_fmt yuv420p -r 25 -t 10 -c:a aac -b:a 192k -shortest -y 'C:\Users\91871\OneDrive\Desktop\PyProjects\Insta_Automator\final_reel_video.mp4'
+Video created: C:\Users\91871\OneDrive\Desktop\PyProjects\Insta_Automator\final_reel_video.mp4
+Could not verify duration: [WinError 2] The system cannot find the file specified
+
+Successfully created video: 'C:\Users\91871\OneDrive\Desktop\PyProjects\Insta_Automator\final_reel_video.mp4'.
+
+--- Video generation successful on attempt 1! Path: C:\Users\91871\OneDrive\Desktop\PyProjects\Insta_Automator\final_reel_video.mp4 ---
+
+--- Proceeding to Upload Video: C:\Users\91871\OneDrive\Desktop\PyProjects\Insta_Automator\final_reel_video.mp4 ---
+--- Caption for Instagram ---
+eace is the ultimate goal, the highest destination
+
+#bhagavadgita #spiritualgrowth #mindfulness #karmayoga #lifelessons #instagramwisdom #innerpeace #purposedriven #motivationdaily #selfimprovement #motherlove #birthplacevibes #emotionalconnection #rootsandwings #heavenonearth #instaquotes #viralreels #indianroots #hearttouching #reelitfeelit
+--------------------------
+📤 Uploading video to Cloudinary...
+✅ Uploaded to Cloudinary.
+🔗 Cloudinary URL: https://res.cloudinary.com/dsf9ilqvu/video/upload/v1748327721/mpac58qe88hov3trnwli.mp4
+📸 Uploading reel to Instagram...
+📤 Creating Instagram media container...
+✅ Container Created: 17882756664296979
+⏳ Checking IG container status... attempt 1
+⏳ Status: IN_PROGRESS
+⏳ Checking IG container status... attempt 2
+⏳ Status: IN_PROGRESS
+⏳ Checking IG container status... attempt 3
+⏳ Status: FINISHED
+🚀 Publishing Reel to Instagram...
+✅ Reel published successfully!
+Response: {'id': '17879071155331378'}
+🗑️ Deleting 'mpac58qe88hov3trnwli' from Cloudinary...
+🗑️ Video deleted from Cloudinary.
+🎉🎉🎉 Full process completed successfully! Video created and uploaded. 🎉🎉🎉
+Errorlevel after python script: 0 
+Script execution finished at 27-05-2025 12:05:59.32 
+ 
